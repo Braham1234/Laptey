@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./includes/head.ejs') %>
+  <body>
+    <head>
+      <%- include('./includes/header.ejs') %>
+    </head>
+    <main class="main-content">
+      <div class="form-container">
+        <h1>Sign up</h1>
+        <p>We are happy that you chose us.</p>
+        <input
+          id="fullName"
+          type="text"
+          name="fullName"
+          placeholder="Full name"
+          required
+        />
+        <input type="email" name="email" placeholder="Email address" required />
+        <div class="password">
+          <input
+            type="password"
+            name="password"
+            placeholder="Password (6+ characters)"
+            id="password_input_field"
+            required
+          />
+          <div class="eye-btn" id="password_toggle_btn">
+            <ion-icon name="eye-outline"></ion-icon>
+          </div>
+        </div>
+        <button type="button" class="signup-btn">Sign up and continue</button>
+        <p>Already have an account? <a href="./signin">Sign in</a></p>
+      </div>
+    </main>
+    <%- include('./includes/footer.ejs') %> <%- include('./includes/end.ejs') %>
+    <script type="module" src="../scripts/user-signin-signup.js" defer></script>
+  </body>
+</html>

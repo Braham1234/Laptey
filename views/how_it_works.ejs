@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./includes/head.ejs') %>
+  <body>
+    <head>
+      <%- include('./includes/header.ejs') %>
+    </head>
+    <main class="main-section">
+      <h1 class="heading">How it works</h1>
+      <section class="order-reservation">
+        <h2>Food order and delivery</h2>
+        <ul>
+          <% let titles = [`Choose your meal`, `Add to cart`, `Checkout`,
+          'Delivery']; %> <% let descriptions = [`Choose your favourite meal
+          from different categories or quickly search for one.`, `Once you have
+          chosen your meal, specify quantity you require and add to your cart.`,
+          `After adding your meal to your cart, specify your delivery address,
+          date and time to delivery`, `Your meal will be delivered to the given
+          address, date and time.`]; %> <% for (let i = 0; i < 4; i++) { %>
+          <li>
+            <img src="../assets/how_it_works/1<%= i %>.svg" />
+            <h3><%= titles[i] %></h3>
+            <p><%= descriptions[i] %></p>
+          </li>
+          <% } %>
+        </ul>
+      </section>
+      <section class="order-reservation">
+        <h2>Reservation</h2>
+        <ul>
+          <% titles = [`Choose date & time`, `Add party size`, `Reserve`,
+          'Visit']; %> <% descriptions = [`From the available date and time,
+          choose your favourable one.`, `Specify the number of table you want to
+          book.`, `Once you have added required details, you can reserve the
+          table.`, `We are happy to see you in the restaurant.`]; %> <% for (let
+          i = 0; i < 4; i++) { %>
+          <li>
+            <img src="../assets/how_it_works/2<%= i %>.svg" />
+            <h3><%= titles[i] %></h3>
+            <p><%= descriptions[i] %></p>
+          </li>
+          <% } %>
+        </ul>
+      </section>
+    </main>
+    <%- include('./includes/footer.ejs') %> <%- include('./includes/end.ejs') %>
+  </body>
+</html>

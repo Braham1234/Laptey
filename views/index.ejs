@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./includes/head.ejs') %>
+  <body>
+    <head>
+      <%- include('./includes/header.ejs') %>
+    </head>
+    <main>
+      <section class="hero">
+        <div class="hero__container">
+          <div class="heading">
+            <p>Enjoy our meal with authentic taste</p>
+          </div>
+          <div class="search">
+            <input
+              type="text"
+              class="search__input"
+              name="meal-name"
+              placeholder="Find your favourite meal"
+            />
+            <button type="button" class="search__button">
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="categories" id="categories">
+        <h1>Categories</h1>
+        <div class="categories__container">
+          <ion-icon
+            id="scroll-left-arrow"
+            name="chevron-back-outline"
+          ></ion-icon>
+          <ul class="categories__list">
+            <% const categories = ['Hot-deals', 'Breakfast', 'Lunch', 'Snacks',
+            'Beverages']; %> <% for (let i = 0; i < 5; i++) { %>
+            <li id="category-btn" data-for-btn="<%= categories[i] %>">
+              <%- include(`../public/assets/icons/index/${i}.svg`) %>
+              <span><%= categories[i] %></span>
+            </li>
+            <% } %>
+          </ul>
+          <ion-icon
+            id="scroll-right-arrow"
+            name="chevron-forward-outline"
+          ></ion-icon>
+        </div>
+        <ul class="meals" id="meal-viewer"></ul>
+      </section>
+    </main>
+    <%- include('./includes/footer.ejs') %> <%- include('./includes/end.ejs') %>
+    <script src="../scripts/index-page.js" type="module"></script>
+  </body>
+</html>

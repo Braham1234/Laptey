@@ -1,0 +1,177 @@
+@import "reset";
+@import "variables";
+@import "responsive";
+
+.main-content {
+  align-self: center;
+  justify-self: center;
+}
+
+.main-content .form-container {
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  overflow: hidden;
+
+  @include responsive("small") {
+    width: 20rem;
+    padding: 2rem 0;
+  }
+
+  h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    color: rgba(38, 40, 51, 0.8);
+  }
+
+  p {
+    margin-top: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: rgba(38, 40, 51, 0.7);
+  }
+
+  input:not([type="checkbox"]) {
+    height: 2.5rem;
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 25px;
+    border: 2px solid #e8e8e8;
+    color: #919191;
+    background: #f6f6f6;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+
+    &::placeholder {
+      color: #7c7c7c;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input[name="email"]:focus,
+  input[name="fullName"]:focus {
+    border: 2px solid lighten($primary-color, 10);
+  }
+
+  .password {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 25px;
+    border: 2px solid #e8e8e8;
+    margin-top: 20px;
+    overflow: hidden;
+    background: #f6f6f6;
+    height: 45px;
+
+    #password_input_field {
+      height: 100%;
+      width: 85%;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      padding-right: 0;
+    }
+
+    .eye-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+      width: 35px;
+      color: #919191;
+      height: 35px;
+      border-radius: 50%;
+      transition: all 200ms;
+
+      &:hover {
+        cursor: poPoppins;
+        background: darken(#f6f6f6, 8);
+      }
+
+      ion-icon {
+        height: 1.5rem;
+      }
+    }
+  }
+
+  .signup-btn {
+    background: $primary-color;
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    transition: background-color 200ms;
+    margin-top: 20px;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: darken($primary-color, 10);
+    }
+  }
+
+  p:last-child {
+    margin-top: 20px;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: $primary-color;
+      transition: hover 200ms;
+
+      &:hover {
+        color: darken($primary-color, 10);
+      }
+    }
+  }
+}
+
+.only-for-signin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 20px;
+
+  .login-session {
+    display: flex;
+    align-items: center;
+
+    input[type="checkbox"] + label {
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: rgba(38, 40, 51, 0.7);
+      margin: 0;
+      margin-left: 10px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: $primary-color;
+    transition: hover 200ms;
+
+    &:hover {
+      color: darken($primary-color, 10);
+    }
+  }
+}

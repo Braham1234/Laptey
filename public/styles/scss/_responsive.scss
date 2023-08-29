@@ -1,0 +1,20 @@
+@mixin responsive($screen-size) {
+  @if ($screen-size == "small") {
+    @media screen and (max-width: 43em) {
+      //688px
+      @content;
+    }
+  }
+  @if ($screen-size == "medium") {
+    @media screen and (max-width: 62em) {
+      //992px
+      @content;
+    }
+  }
+  @if ($screen-size == "large") {
+    @media screen and (max-width: 82em) {
+      //1312px
+      @content;
+    }
+  }
+}

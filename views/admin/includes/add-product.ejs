@@ -1,0 +1,60 @@
+<div
+class="view-panel__content"
+data-tab="product"
+>
+<section class="product-tabs" data-for-tab="add">
+  <button data-for-tab="add" class="product__tab">Add meal</button>
+  <button data-for-tab="edit" class="product__tab">Edit meal</button>
+</section>
+<section class="product__contents">
+
+</section>
+  <div data-tab="add" class="product__content">
+    <div class="add-product-form">
+      <div class="input-row">
+        <label for="meal-name">Meal name</label>
+        <input type="text" id="meal-name" name="meal-name">
+      </div>
+      <div class="input-row">
+        <label for="meal-intro">Introduction</label>
+        <input type="text" id="meal-intro" name="meal-intro">
+      </div>
+      <div class="input-row">
+        <label for="meal-desc">Description</label>
+        <textarea id="meal-desc" name="meal-desc"></textarea>
+      </div>
+      <div class="input-row">
+        <label for="meal-photo">Photo</label>
+        <input type="file" id="meal-photo" name="meal-photo">
+      </div>
+      <div class="input-row">
+        <label for="meal-category">Category</label>
+        <select id="meal-category" name="meal-category">
+          <% const categories = ['Hot-deals', 'Breakfast', 'Lunch', 'Snacks', 'Beverages']; %>
+          <% categories.forEach(category => { %>
+            <option value="<%= category %>"><%= category %></option>
+          <% }); %>
+        </select>
+      </div>
+      <div class="input-row">
+        <label for="meal-rate">Rate</label>
+        <input type="number" id="meal-rate" name="meal-rate" min="0">
+      </div>
+      <!-- <div class="input-row">
+        <label>Rating</label>
+        <div class="ratings">
+          <% for (let i = 0; i < 6; i++) { %>
+            <div class="rating">
+              <input id="rating-<%= i %>" type="radio" name="rating" value=<%= i %>>
+              <label for="rating-<%= i %>"><%= i %></label>
+            </div>
+            <% } %>
+        </div>
+      </div> -->
+      
+      <button>Add product</button>
+    </div>
+  </div>
+  <ul data-tab="edit" class="product__content edit-container"></ul>
+</div>
+</div>

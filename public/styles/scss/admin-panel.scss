@@ -1,0 +1,461 @@
+@import "reset";
+@import "variables";
+@import "message";
+
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.main-content {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-areas: "sidebar view-panel";
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    height: 100%;
+    padding: 0 2rem;
+    background: $dark-color;
+    grid-area: "sidebar";
+    &__top {
+      margin-bottom: 2rem;
+      .logo-container {
+        display: grid;
+        place-items: center;
+        margin: 3rem 0;
+        text-decoration: none;
+        .logo {
+          display: flex;
+          align-items: center;
+          width: auto;
+          margin: 0 auto;
+          img {
+            height: 60px;
+          }
+          p {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            color: #fff;
+          }
+        }
+      }
+      .sidebar__btns {
+        display: flex;
+        flex-direction: column;
+        .sidebar__btn {
+          padding: 0.8rem;
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-size: 1rem;
+          text-align: left;
+          color: #fff;
+          background: transparent;
+          border: none;
+          border-radius: 0.5rem;
+          margin-bottom: 0.5rem;
+          cursor: pointer;
+          &:hover {
+            background: darken($dark-color, 5);
+          }
+          &--active {
+            background: darken($dark-color, 5);
+          }
+        }
+      }
+    }
+    &__bottom {
+      hr {
+        border: 1px solid lighten($dark-color, 20);
+        margin-bottom: 1rem;
+      }
+      button {
+        padding: 1rem;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        color: #fff;
+        background: transparent;
+        margin-bottom: 2rem;
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        text-align: left;
+        &:hover {
+          background: darken($dark-color, 5);
+          border-radius: 0.5rem;
+        }
+      }
+    }
+  }
+  .view-panel {
+    padding: 4rem;
+    &__content,
+    .product__content {
+      display: none;
+      &--active,
+      .product__content--active {
+        display: block;
+      }
+    }
+    .product__tab {
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: #fff;
+      background: lighten($primary-color, 5);
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.8rem;
+      cursor: pointer;
+      &--active {
+        background: darken($primary-color, 15);
+      }
+    }
+    .product__content[data-tab="add"] {
+      margin-top: 2rem;
+      .add-product-form {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        margin: 0 auto;
+        .input-row {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 1rem;
+          label {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            color: $dark-color;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+          }
+          textarea {
+            padding: 0.2rem;
+            min-height: 50px;
+            max-height: 200px;
+            min-width: 100%;
+            max-width: 100%;
+          }
+          select {
+            padding: 0.2rem;
+            cursor: pointer;
+          }
+          input:not([type="radio"]) {
+            padding: 0.2rem;
+          }
+          input[type="radio"] {
+            cursor: pointer;
+          }
+          // .ratings {
+          //   display: flex;
+          //   justify-content: space-between;
+          //   .rating {
+          //     display: flex;
+          //     align-items: center;
+          //     label {
+          //       margin-left: 0.5rem;
+          //       margin-bottom: 0;
+          //     }
+          //   }
+          // }
+        }
+        button {
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-size: 1rem;
+          color: #fff;
+          border: none;
+          border-radius: 1rem;
+          background: $primary-color;
+          padding: 0.8rem;
+          cursor: pointer;
+        }
+      }
+    }
+    .product__content[data-tab="edit"] {
+      margin-top: 1.5rem;
+      .list-item {
+        img {
+          height: 3rem;
+        }
+        &__btns {
+          ion-icon {
+            &[name="pencil-outline"] {
+              color: rgb(104, 151, 253);
+              &:hover {
+                background: lighten(rgb(104, 151, 253), 28);
+              }
+            }
+            &[name="trash-outline"] {
+              color: rgb(255, 134, 150);
+              &:hover {
+                background: lighten(rgb(255, 134, 150), 22);
+              }
+            }
+          }
+        }
+      }
+    }
+    &__content {
+      margin-top: 2rem;
+      list-style: none;
+      .list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 4rem;
+        border-radius: 0.5rem;
+        padding: 0.5rem 0.8rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 0 20px rgba(14, 14, 14, 0.1);
+        transition: all 100ms;
+        cursor: pointer;
+        &__details {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 85%;
+          height: 100%;
+          .list-item__column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            img {
+              height: 3rem;
+            }
+            .heading {
+              font-family: "Poppins", sans-serif;
+              font-weight: 500;
+              font-size: 0.8rem;
+              margin-bottom: 0.2rem;
+              color: lighten($dark-color, 25);
+            }
+            .value {
+              font-family: "Poppins", sans-serif;
+              font-weight: 400;
+              font-size: 1rem;
+              color: lighten($dark-color, 30);
+            }
+          }
+        }
+        &__btns {
+          display: flex;
+          justify-content: space-around;
+          cursor: pointer;
+          width: 10%;
+          ion-icon {
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            border-radius: 1.5rem;
+            transition: hover 200ms;
+            cursor: pointer;
+            &[name="list-outline"] {
+              color: rgb(104, 151, 253);
+              &:hover {
+                background: lighten(rgb(104, 151, 253), 28);
+              }
+            }
+            &[name="checkmark-outline"] {
+              color: rgb(25, 252, 146);
+              &:hover {
+                background: lighten(rgb(25, 252, 146), 43);
+              }
+            }
+          }
+        }
+        &:hover {
+          border: 3px solid lighten($primary-color, 15);
+        }
+        &--active {
+          background: darken($primary-color, 1);
+          .list-item__column {
+            .heading,
+            .value {
+              color: #fff;
+            }
+            img {
+              border: 2px solid #fff;
+              border-radius: 4px;
+            }
+          }
+          .list-item__btns {
+            ion-icon {
+              color: #fff;
+              &:hover {
+                background: lighten($primary-color, 5);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 5;
+  width: 50rem;
+  height: 30rem;
+  background: #fff;
+  margin: 0 auto;
+  left: 50%;
+  top: 50%;
+  margin-left: -25rem;
+  margin-top: -15rem;
+  border-radius: 1rem;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  &--slide-in {
+    animation: slide-in 200ms ease-in;
+  }
+  .close-btn {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    font-size: 1.8rem;
+    color: lighten($dark-color, 30);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    transition: hover 200ms;
+    cursor: pointer;
+    &:hover {
+      background: lighten($dark-color, 80);
+    }
+  }
+  .list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 20px rgba(14, 14, 14, 0.1);
+    transition: all 100ms;
+    cursor: pointer;
+    &__details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 85%;
+      height: 100%;
+      .list-item__column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        img {
+          height: 3rem;
+        }
+        .heading {
+          font-family: "Poppins", sans-serif;
+          font-weight: 500;
+          font-size: 0.8rem;
+          margin-bottom: 0.2rem;
+          color: lighten($dark-color, 25);
+        }
+        .value {
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-size: 1rem;
+          color: lighten($dark-color, 30);
+        }
+      }
+    }
+    &:hover {
+      border: 3px solid lighten($primary-color, 15);
+    }
+  }
+  .input-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    label {
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: $dark-color;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+    textarea {
+      padding: 0.2rem;
+      min-height: 50px;
+      max-height: 200px;
+      min-width: 100%;
+      max-width: 100%;
+    }
+    select {
+      padding: 0.2rem;
+      cursor: pointer;
+    }
+    input:not([type="radio"]) {
+      padding: 0.2rem;
+    }
+    input[type="radio"] {
+      cursor: pointer;
+    }
+  }
+  button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 1rem;
+    background: $primary-color;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: hover 200ms;
+
+    &:hover {
+      background-color: darken($primary-color, 10);
+    }
+  }
+}
+
+.backdrop {
+  background: #000;
+  opacity: 0.4;
+  backdrop-filter: blur(1000px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(-10vw);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

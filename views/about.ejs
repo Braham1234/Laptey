@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./includes/head.ejs') %>
+  <body>
+    <head>
+      <%- include('./includes/header.ejs') %>
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""
+      />
+    </head>
+    <main class="main-section">
+      <section class="container1">
+        <img src="./assets/icon.png" />
+        <div class="about-us-text">
+          <h1>About us</h1>
+          <p>
+            Laptey is where you can find, choose and order wide-range of meals
+            prepared by our best cooks and delivered to your doorsteps in
+            exchange of your smiles and happiness. We value your time. So, we
+            also facilitate customers to view our menu and book their table at
+            our restaurant avoiding long queue.
+            <br /><br />
+            We are always dedicated to ease you with the best service and
+            experience and serve you with your favourite meal at a reasonable
+            price whilst saving your precious time. Our sole aim is to promote
+            the authentic taste of various cuisines available in Nepal. We serve
+            and deliver our meal in ‘Laptey’ - a leaf plate as an initiative to
+            reduce non-biodegradable waste.
+          </p>
+        </div>
+      </section>
+      <section class="container2">
+        <div class="container2__feedback">
+          <h1>We value your feedbacks.</h1>
+         <!-- <form class="form" action="" method="POST"> -->
+          <input type="fullName" name="fullName" placeholder="Full Name" required />
+          <input type="email" name="email" placeholder="Email address" required />
+            <h2>How would you like to rate our service?</h2>
+            <div class="rating">
+              <% for(let i = 5; i > 0; i--) { %>
+              <!-- Work in Progress -->
+              <input type="radio" name="stars" id="rate-<%= i %>" value="<%= i %>"/>
+              <label for="rate-<%= i %>"
+                ><ion-icon name="star"></ion-icon
+              ></label>
+              <% } %>
+              <!-- <% for(let i = 1; i <= 4; i++) { %>
+              <img src="./assets/icons/star_full.svg" />
+              <% } %>
+              <img src="./assets/icons/star_half.svg" /> -->
+            </div>
+            <h2>Tell us how we can improve</h2>
+            <textarea
+              name="response"
+              placeholder="Type your message here."
+            ></textarea>
+            <button class="submit-btn" type="submit">Submit</button>
+          </form>
+        </div>
+        <div id="map"></div>
+      </section>
+    </main>
+    <%- include('./includes/footer.ejs') %> <%- include('./includes/end.ejs') %>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="./scripts/map.js"></script>
+    <script type="module" src="../scripts/feedback.js" defer></script>
+  </body>
+</html>

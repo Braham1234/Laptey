@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-content {
+  display: grid;
+  place-items: center;
+}
+
+@media screen and (max-width: 43em) {
+  .main-content {
+    margin: auto;
+  }
+}
+
+.main-content .container {
+  width: 80%;
+  margin: 4rem auto;
+}
+
+@media screen and (max-width: 43em) {
+  .main-content .container {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.main-content .container .cart h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: #262833;
+}
+
+@media screen and (max-width: 43em) {
+  .main-content .container .cart h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.main-content .container .cart h1::after {
+  content: "";
+  display: block;
+  width: 10rem;
+  height: 0.5rem;
+  background: #ffba6a;
+  margin-top: 0.8rem;
+}
+
+.main-content .container .cart .reservation-items {
+  margin-top: 2rem;
+  list-style: none;
+}
+
+.main-content .container .cart .reservation-items .empty-reservation-message {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #5c617c;
+}
+
+.main-content .container .cart .reservation-items .empty-reservation-message a {
+  color: #ffba6a;
+}
+
+.main-content .container .cart .reservation-items .reservation-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 60rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 20px rgba(14, 14, 14, 0.1);
+  transition: all 100ms;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 62em) {
+  .main-content .container .cart .reservation-items .reservation-item {
+    min-width: 32rem;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .main-content .container .cart .reservation-items .reservation-item {
+    min-width: 90vw;
+  }
+}
+
+.main-content .container .cart .reservation-items .reservation-item__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  height: 100%;
+}
+
+@media screen and (max-width: 43em) {
+  .main-content .container .cart .reservation-items .reservation-item__details {
+    width: 90%;
+  }
+}
+
+.main-content .container .cart .reservation-items .reservation-item__details .reservation-item__column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.main-content .container .cart .reservation-items .reservation-item__details .reservation-item__column img {
+  height: 3rem;
+}
+
+.main-content .container .cart .reservation-items .reservation-item__details .reservation-item__column .heading {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+  color: #5c617c;
+}
+
+.main-content .container .cart .reservation-items .reservation-item__details .reservation-item__column .value {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #676d8b;
+}
+
+@media screen and (max-width: 62em) {
+  .main-content .container .cart .reservation-items .reservation-item__details .reservation-item__column .heading {
+    font-size: 0.7rem;
+  }
+  .main-content .container .cart .reservation-items .reservation-item__details .reservation-item__column .value {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .main-content .container .cart .reservation-items .reservation-item__details .reservation-item__column .heading {
+    font-size: 0.55rem;
+  }
+  .main-content .container .cart .reservation-items .reservation-item__details .reservation-item__column .value {
+    font-size: 0.7rem;
+  }
+}
+
+.main-content .container .cart .reservation-items .reservation-item__btns {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 10%;
+}
+
+.main-content .container .cart .reservation-items .reservation-item__btns ion-icon {
+  font-size: 1.5rem;
+  color: #8388a2;
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  transition: hover 200ms;
+  cursor: pointer;
+}
+
+.main-content .container .cart .reservation-items .reservation-item__btns ion-icon:hover {
+  background: #f8f8f9;
+}
+
+.main-content .container .cart .reservation-items .reservation-item:hover {
+  border: 3px solid #ffddb7;
+}
+
+.main-content .container .cart .reservation-items .reservation-item--active {
+  background: #ffb865;
+}
+
+.main-content .container .cart .reservation-items .reservation-item--active .reservation-item__column .heading,
+.main-content .container .cart .reservation-items .reservation-item--active .reservation-item__column .value {
+  color: #fff;
+}
+
+.main-content .container .cart .reservation-items .reservation-item--active .reservation-item__column img {
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
+
+.main-content .container .cart .reservation-items .reservation-item--active .reservation-item__btns ion-icon {
+  color: #fff;
+}
+
+.main-content .container .cart .reservation-items .reservation-item--active .reservation-item__btns ion-icon:hover {
+  background: #ffc684;
+}

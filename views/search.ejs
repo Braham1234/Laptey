@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./includes/head.ejs') %>
+  <body>
+    <%- include('./includes/header.ejs') %>
+
+    <main class="main-section">
+      <div class="search">
+        <input
+          type="text"
+          class="search__input"
+          name="meal-name"
+          placeholder="Find your favourite meal"
+        />
+        <button type="button" class="search__button">
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </div>
+      <ul class="meals">
+        <% if (products.length === 0) { %>
+        <p class="no-meals-message">
+          Sorry, we could not find any meal you are looking for. Please try
+          again.
+        </p>
+        <% } else { %> <% products.forEach(product => { %> <% const fullStarNum
+        = product.ratings; %>
+        <li
+          class="meal"
+          id="<%= product._id %>"
+          data-for-fullstars="<%= fullStarNum %>"
+        >
+          <div class="wishlist">
+            <ion-icon name="heart-outline"></ion-icon>
+          </div>
+          <div class="img-container">
+            <img src="<%= product.imgUrl %>" />
+          </div>
+          <div class="details">
+            <h3><%= product.name %></h3>
+            <span>Rs. <%= product.price %></span>
+
+            <div class="ratings">
+              <% for (let i = 1; i <= fullStarNum; i++) { %>
+              <ion-icon name="star"></ion-icon>
+              <% } %> <% for (let i = 1; i <= 5-fullStarNum; i++) { %>
+              <ion-icon name="star-outline"></ion-icon>
+              <% } %>
+            </div>
+          </div>
+        </li>
+        <% }) %> <% } %>
+      </ul>
+    </main>
+    <script src="/scripts/search.js" type="module"></script>
+  </body>
+  <%- include('./includes/footer.ejs') %> <%- include('./includes/end.ejs') %>
+</html>

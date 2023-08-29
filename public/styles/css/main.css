@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url(../../assets/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Montserrat-Medium";
+  src: url(../../assets/fonts/Montserrat-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Montserrat-SemiBold";
+  src: url(../../assets/fonts/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url(../../assets/fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Inter-Light";
+  src: url(../../assets/fonts/Inter-Light.ttf);
+}
+
+@font-face {
+  font-family: "Inter-Medium";
+  src: url(../../assets/fonts/Inter-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Inter-Regular";
+  src: url(../../assets/fonts/Inter-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Inter-SemiBold";
+  src: url(../../assets/fonts/Inter-SemiBold.ttf);
+}
+
+.heading {
+  font-family: "Montserrat-SemiBold", "sans-serif";
+  color: #626262;
+  font-size: 8rem;
+  text-align: center;
+  margin: 15% 0;
+}

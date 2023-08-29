@@ -1,0 +1,71 @@
+@import "reset";
+@import "variables";
+@import "responsive";
+
+.message {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  margin: 0 auto;
+  height: 2rem;
+  width: 100vw;
+  padding: 0 1rem;
+  bottom: 0;
+  background: #fff;
+  border-radius: 0.5rem 0.5rem 0 0;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+
+  &__text {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: lighten($dark-color, 10);
+
+    @include responsive("small") {
+      font-size: 0.8rem;
+    }
+  }
+
+  &__appear {
+    animation: showMessage 500ms ease-in;
+  }
+
+  &__disappear {
+    animation: hideMessage 250ms ease-out;
+  }
+
+  &__error {
+    border: 2px solid rgb(255, 202, 87);
+
+    .message__text {
+      color: rgb(255, 202, 87);
+    }
+  }
+
+  &__success {
+    border: 2px solid rgb(15, 192, 89);
+
+    .message__text {
+      color: rgb(15, 192, 89);
+    }
+  }
+}
+
+@keyframes showMessage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hideMessage {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

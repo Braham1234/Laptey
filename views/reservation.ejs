@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./includes/head.ejs') %>
+  <body>
+    <head>
+      <%- include('./includes/header.ejs') %>
+    </head>
+    <main class="main-content">
+      <div class="form-container">
+        <h1>Reservation</h1>
+        <label>On the occassion of</p>
+        <input
+        id="occassion"
+        type="text"
+        name="occassion"
+        placeholder="Example: Birthday"
+        required
+        />
+
+        <div class="form__row">
+          <div class="form__column">
+            <label for="party-size">Party Size</p>
+            <input type="number" min="1" id="required-table"id="party-size" name="party-size" required />
+          </div>
+          <div class="form__column">
+            <label for="required-table">Number of Tables</p>
+            <input type="number" min="1" id="required-table" name="required-table" required />
+          </div>
+        </div>
+
+        <div class="form__row form__row-last">
+          <div class="form__column">
+            <label for="date">Date</p>
+            <input id="date" type="date" name="date"  required/>
+          </div>
+          <div class="form__column">
+            <div class="form__row">
+              <div  class="form__column">
+                <label for="starting-time">Starting Time</p>
+                <input id="starting-time" min="9:00" max="10:00" type="time" name="starting-time" required />
+              </div>
+              <div class="form__column">
+                <label for="ending-time">Ending Time</p>
+                <input id="ending-time" min="10:00" max="18:00" type="time" name="ending-time" required />
+              </div>
+          </div>
+
+          </div>
+          </div>
+          <div class="form_btns">
+            <button type="button" class="reserve-btn">Reserve</button>
+            <a href="/">Cancel</a>
+          </div>
+      </div>
+    </main>
+    <%- include('./includes/footer.ejs') %> <%- include('./includes/end.ejs') %>
+    <script type="module" src="../scripts/reservation.js" defer></script>
+  </body>
+</html>

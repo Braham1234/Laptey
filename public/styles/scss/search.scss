@@ -1,0 +1,92 @@
+@import "reset";
+@import "variables";
+@import "modal_meals";
+
+.main-section {
+  .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.4rem 0 1.5rem;
+    margin-top: 30px;
+    height: 4rem;
+    width: 40rem;
+    background: #f6f6f6;
+    border: 2.5px solid #c0c0c0;
+    border-radius: 2rem;
+    overflow: hidden;
+    margin: 3rem auto 1rem auto;
+
+    @include responsive("medium") {
+      width: 30rem;
+    }
+
+    @include responsive("small") {
+      width: 20rem;
+    }
+
+    &__input {
+      width: 90%;
+      border: 0;
+      background: transparent;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: #919191;
+
+      &::placeholder {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-size: 1.2rem;
+        color: #919191;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      @include responsive("small") {
+        font-size: 1rem;
+        width: 80%;
+
+        &::placeholder {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    &__button {
+      display: grid;
+      place-items: center;
+      width: 3rem;
+      height: 3rem;
+      margin-left: 1.5rem;
+      background: $primary-color;
+      border: 0;
+      border-radius: 1.5rem;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      transition: hover 200ms;
+
+      &:hover {
+        background-color: darken($primary-color, 10);
+      }
+
+      @include responsive("small") {
+        margin-left: 1.2rem;
+      }
+    }
+  }
+
+  .meals {
+    margin-top: 2rem;
+  }
+
+  .meals .no-meals-message {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    color: lighten($dark-color, 25);
+  }
+}

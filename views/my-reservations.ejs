@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./includes/head.ejs') %>
+  <body>
+    <head>
+      <%- include('./includes/header.ejs') %>
+    </head>
+    <main class="main-content">
+      <div class="container">
+        <section class="cart">
+          <h1>My reservations</h1>
+          <ul class="reservation-items">
+            <% const reservations = myReservations; const isReservationsEmpty =
+            (reservations.length === 0 ? true : false); %> <% if
+            (isReservationsEmpty) { %>
+            <p class="empty-reservation-message">
+              You do not have any reservations. Please click
+              <a href="/reservation">here</a> to reserve your table.
+            </p>
+            <% } else { %> <% reservations.forEach(reservation => { const
+            reservationDate = new Date(reservation.date).toLocaleDateString();%>
+
+            <li class="reservation-item" id="<%= reservation._id %>">
+              <div class="reservation-item__details">
+                <div class="reservation-item__column">
+                  <span class="heading">Occasion</span>
+                  <span class="value"><%= reservation.occassion %></span>
+                </div>
+                <div class="reservation-item__column">
+                  <span class="heading">Party size</span>
+                  <span class="value"><%= reservation.partySize %></span>
+                </div>
+                <div class="reservation-item__column">
+                  <span class="heading">Table(s)</span>
+                  <span class="value"><%= reservation.tableRequired %></span>
+                </div>
+                <div class="reservation-item__column">
+                  <span class="heading">Reservation date</span>
+                  <span class="value"><%= reservationDate %></span>
+                </div>
+                <div class="reservation-item__column">
+                  <span class="heading">Starting time</span>
+                  <span class="value"><%= reservation.startingTime %></span>
+                </div>
+                <div class="reservation-item__column">
+                  <span class="heading">Ending time</span>
+                  <span class="value"><%= reservation.endingTime %></span>
+                </div>
+              </div>
+              <div class="reservation-item__btns">
+                <ion-icon name="trash"></ion-icon>
+              </div>
+            </li>
+            <% }) %> <% } %>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <%- include('./includes/footer.ejs') %> <%- include('./includes/end.ejs') %>
+    <script type="module" src="../scripts/my-reservations.js" defer></script>
+  </body>
+</html>

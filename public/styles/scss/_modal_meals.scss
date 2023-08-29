@@ -1,0 +1,415 @@
+@import "reset";
+@import "variables";
+@import "responsive";
+
+%wishlist {
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: calc(1.5rem / 2);
+  background: #fff;
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+
+  ion-icon {
+    font-size: 1.2rem;
+    color: lighten($dark-color, 30);
+    transition: all 200ms;
+    cursor: pointer;
+  }
+
+  &:hover {
+    ion-icon {
+      color: rgb(255, 101, 121);
+      filter: drop-shadow(0 0 0.2rem rgba(255, 62, 88, 0.699));
+    }
+  }
+}
+
+.backdrop {
+  background: #000;
+  opacity: 0.4;
+  backdrop-filter: blur(1000px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 101;
+}
+
+.modal {
+  position: fixed;
+  z-index: 102;
+  width: 50rem;
+  height: 30rem;
+  background: #fff;
+  margin: 0 auto;
+  left: 50%;
+  bottom: 50%;
+  margin-left: -25rem;
+  margin-bottom: -15rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+
+  @include responsive("medium") {
+    width: 40rem;
+    margin-left: -20rem;
+  }
+
+  @include responsive("small") {
+    width: 100vw;
+    height: 92vh;
+    padding: 1rem;
+    margin: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 1rem 1rem 0 0;
+    flex-direction: column;
+  }
+
+  &--slide-in {
+    animation: slide-in 200ms ease-in;
+  }
+
+  .container-left {
+    width: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    img {
+      height: 100%;
+    }
+
+    .wishlist {
+      @extend %wishlist;
+
+      @include responsive("small") {
+        display: none;
+      }
+    }
+
+    @include responsive("small") {
+      width: 100%;
+      height: 30%;
+    }
+  }
+
+  .container-right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: space-between;
+    position: relative;
+
+    @include responsive("small") {
+      width: 100%;
+      height: 70%;
+    }
+
+    .close-btn {
+      display: grid;
+      place-items: center;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.8rem;
+      color: lighten($dark-color, 30);
+      width: 2rem;
+      height: 2rem;
+      border-radius: 1rem;
+      transition: hover 200ms;
+      cursor: pointer;
+
+      &:hover {
+        background: lighten($dark-color, 80);
+      }
+
+      @include responsive("small") {
+        top: 1rem;
+        right: 1rem;
+      }
+    }
+
+    .horizontal-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    h1 {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      font-size: 2rem;
+      color: lighten($dark-color, 12);
+
+      + p {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        color: lightblue($dark-color, 15);
+      }
+
+      @include responsive("medium") {
+        font-size: 1.5rem;
+
+        + p {
+          font-size: 0.8rem;
+          margin: 0.8rem 0;
+        }
+      }
+    }
+
+    h3 {
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: lighten($dark-color, 15);
+      margin-bottom: 0.5rem;
+
+      + span {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: $primary-color;
+      }
+
+      + p {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-size: 0.8rem;
+        color: lighten($dark-color, 10);
+        line-height: 1.2rem;
+      }
+
+      @include responsive("medium") {
+        font-size: 0.95rem;
+
+        + span {
+          font-size: 1.25rem;
+        }
+
+        + p {
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    .qty-control {
+      display: flex;
+      height: 50px;
+      border-radius: 25px;
+      padding: 0.5rem;
+      background: lighten(#f8f8f8, 1);
+
+      .btn {
+        display: grid;
+        place-items: center;
+        height: 2rem;
+        width: 2rem;
+        border-radius: 1rem;
+        background: $primary-color;
+        color: #fff;
+        font-size: 1.5rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken($primary-color, 10);
+        }
+      }
+
+      input {
+        background: transparent;
+        width: 4rem;
+        text-align: center;
+        border: none;
+        font-family: "Monstserrat", sans-serif;
+        font-weight: 500;
+        font-size: 1.2rem;
+        color: lighten($dark-color, 40);
+        margin: 0 0.2rem;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .add-to-cart-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      height: 50px;
+      width: 150px;
+      border-radius: 25px;
+      background: $primary-color;
+      color: #fff;
+      cursor: pointer;
+      transition: all 200ms;
+
+      &:hover {
+        background-color: darken($primary-color, 10);
+      }
+
+      ion-icon {
+        font-size: 1.5rem;
+      }
+
+      span {
+        font-size: 1rem;
+        margin-left: 0.5rem;
+      }
+    }
+
+    .ratings {
+      display: flex;
+      justify-content: space-between;
+      margin: 0.5rem 0;
+      width: 12rem;
+
+      @include responsive("small") {
+        margin: 1.2rem 0;
+      }
+
+      ion-icon {
+        color: $primary-color;
+        transform: scale(2);
+      }
+    }
+  }
+}
+
+.meals {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 5rem auto 2rem;
+  justify-content: center;
+
+  @include responsive("small") {
+    width: 95%;
+  }
+
+  .meal {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 12rem;
+    height: 15rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    margin: 1rem;
+    transition: transform 0.2s ease;
+
+    @include responsive("small") {
+      width: 9rem;
+      height: 11rem;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .wishlist {
+      @extend %wishlist;
+    }
+
+    .img-container {
+      display: grid;
+      place-items: center;
+      height: 50%;
+      width: 100%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .details {
+      padding: 1rem;
+
+      h3,
+      span {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 1.1rem;
+
+        @include responsive("small") {
+          font-size: 0.9rem;
+        }
+      }
+
+      h3 {
+        color: lighten($dark-color, 10);
+      }
+
+      span {
+        display: inline-block;
+        color: $primary-color;
+        margin-top: 0.5rem;
+      }
+
+      .ratings {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+        width: 8rem;
+
+        @include responsive("small") {
+          width: 6rem;
+        }
+
+        ion-icon {
+          color: $primary-color;
+          transform: scale(1.5);
+
+          @include responsive("small") {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.category-btn-active {
+  span {
+    color: $primary-color !important;
+  }
+
+  svg {
+    path {
+      fill: $primary-color;
+    }
+  }
+}
+
+.qty-control__btn--disable {
+  background: #c7c7c7 !important;
+  cursor: not-allowed !important;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(-10vw);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

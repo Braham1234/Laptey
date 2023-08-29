@@ -1,0 +1,178 @@
+@import "reset";
+@import "variables";
+@import "message";
+
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.main-content {
+  height: 100%;
+  display: grid;
+  place-items: center;
+
+  .container {
+    padding: 3rem;
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.04);
+    border-radius: 1.5rem;
+
+    .logo {
+      display: flex;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3rem;
+
+      img {
+        height: 100px;
+      }
+
+      p {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 35px;
+        margin-left: 0.8rem;
+        color: $dark-color;
+        opacity: 0.6;
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      width: 24rem;
+      overflow: hidden;
+
+      h1 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 2.2rem;
+        color: rgba(38, 40, 51, 0.8);
+      }
+
+      p {
+        margin-top: 10px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        color: rgba(38, 40, 51, 0.7);
+      }
+
+      input {
+        height: 45px;
+        margin-top: 20px;
+        padding: 16px;
+        border-radius: 25px;
+        border: 2px solid #e8e8e8;
+        color: #919191;
+        background: #f6f6f6;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+
+        &::placeholder {
+          color: #7c7c7c;
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-size: 1rem;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+        }
+      }
+
+      .password {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-radius: 25px;
+        border: 2px solid #e8e8e8;
+        margin-top: 20px;
+        overflow: hidden;
+        background: #f6f6f6;
+        height: 45px;
+
+        #password_input_field {
+          height: 100%;
+          width: 85%;
+          margin: 0;
+          border: 0;
+          border-radius: 0;
+          padding-right: 0;
+        }
+
+        .eye-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 10px;
+          width: 35px;
+          color: #919191;
+          height: 35px;
+          border-radius: 50%;
+          transition: all 200ms;
+
+          &:hover {
+            cursor: pointer;
+            background: darken(#f6f6f6, 8);
+          }
+
+          ion-icon {
+            font-size: 1.5rem;
+            // height: 1.5rem;
+          }
+        }
+      }
+
+      .signup-btn {
+        background: $primary-color;
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        height: 50px;
+        border: none;
+        border-radius: 25px;
+        transition: background-color 200ms;
+        margin-top: 20px;
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: darken($primary-color, 10);
+        }
+      }
+
+      p:last-child {
+        margin-top: 20px;
+        text-align: center;
+
+        a {
+          text-decoration: none;
+          color: $primary-color;
+          transition: hover 200ms;
+
+          &:hover {
+            color: darken($primary-color, 10);
+          }
+        }
+      }
+    }
+  }
+}

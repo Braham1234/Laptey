@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-section {
+  width: 80vw;
+  margin: 3rem auto 0;
+}
+
+@media screen and (max-width: 43em) {
+  .main-section {
+    width: 90vw;
+  }
+}
+
+.heading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  color: #313342;
+}
+
+@media screen and (max-width: 62em) {
+  .heading {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .heading {
+    font-size: 2rem;
+  }
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  width: 10rem;
+  height: 6px;
+  background: #ffba6a;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 62em) {
+  .heading::after {
+    margin: 1rem auto 0;
+  }
+}
+
+.order-reservation {
+  margin: 4rem 0;
+}
+
+.order-reservation h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #373a4a;
+}
+
+@media screen and (max-width: 62em) {
+  .order-reservation h2 {
+    text-align: center;
+    font-size: 1.4rem;
+  }
+}
+
+.order-reservation ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-top: 2rem;
+  justify-content: space-around;
+}
+
+.order-reservation ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  max-width: 280px;
+  padding: 2rem;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+  border-radius: 1rem;
+}
+
+@media screen and (max-width: 43em) {
+  .order-reservation ul li {
+    margin-top: 1.2rem;
+    width: 10rem;
+  }
+  .order-reservation ul li img {
+    width: 4rem;
+  }
+}
+
+.order-reservation ul li h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #474a5f;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 62em) {
+  .order-reservation ul li h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .order-reservation ul li h3 {
+    font-size: 1rem;
+  }
+}
+
+.order-reservation ul li p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #474a5f;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 62em) {
+  .order-reservation ul li p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .order-reservation ul li p {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,55 @@
+<header class="header">
+  <div class="header__container">
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn"><span class="burger"></span></label>
+    <a href="/" class="logo">
+      <img src="/assets/icon.png" />
+      <p>Laptey</p>
+    </a>
+    <nav class="main-nav">
+      <ul class="main-nav__lists">
+        <li class="main-nav__list"><a href="/#categories">Categories</a></li>
+        <li class="main-nav__list">
+          <a href="/reservation">Reservation</a>
+        </li>
+        <li class="main-nav__list">
+          <a href="/how_it_works">How it works</a>
+        </li>
+        <li class="main-nav__list active">
+          <a href="/about">About</a>
+        </li>
+      </ul>
+    </nav>
+
+    <% if (signedIn) { %>
+    <div class="user-btns">
+      <a href="/my-cart" class="cart">
+        <!-- <div class="notification"></div> -->
+        <ion-icon name="cart-outline"></ion-icon>
+      </a>
+      <div class="user">
+        <button class="user__btn"><img src="../../assets/avatar.svg" /></button>
+        <ul class="user__menu">
+          <li>
+            <a href="/my-reservations"
+              ><ion-icon name="bookmark-outline"></ion-icon
+              ><span>Reservations</span></a
+            >
+          </li>
+          <li>
+            <button id="signout-btn">
+              <ion-icon name="log-out-outline"></ion-icon><span>Signout</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <% } else { %>
+
+    <div class="sign-in-up-btns">
+      <a href="./signin" class="btn btn__secondary">Sign in</a>
+      <a href="./signup" class="btn btn__primary">Sign up</a>
+    </div>
+    <% } %>
+  </div>
+</header>

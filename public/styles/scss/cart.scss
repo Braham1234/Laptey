@@ -1,0 +1,361 @@
+@import "reset";
+@import "variables";
+@import "responsive";
+
+.backdrop {
+  background: #000;
+  opacity: 0.4;
+  backdrop-filter: blur(1000px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 102;
+}
+
+.main-content {
+  display: grid;
+  place-items: center;
+
+  @include responsive("small") {
+    padding: 0 1rem;
+  }
+
+  .floating-btn {
+    display: none;
+    width: 7rem;
+    height: 3rem;
+    box-shadow: 0 0 20px rgba(14, 14, 14, 0.1);
+    font-size: 1rem;
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    border-radius: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    background: $primary-color;
+    border: none;
+    transition: hover 200ms;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #ffa237;
+    }
+
+    @include responsive("small") {
+      display: grid;
+      place-items: center;
+    }
+  }
+
+  .container {
+    width: 60%;
+    margin: 4rem 20rem 4rem 0;
+
+    @include responsive("medium") {
+      margin: 2rem 10rem 2rem 0;
+      margin-left: -18vw;
+    }
+
+    @include responsive("small") {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    .cart {
+      h1 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 2.2rem;
+        color: #262833;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 10rem;
+          height: 0.5rem;
+          background: $primary-color;
+          margin-top: 0.8rem;
+        }
+      }
+
+      .cart-items {
+        margin-top: 2rem;
+        list-style: none;
+
+        .empty-cart-message {
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-size: 1rem;
+          color: lighten($dark-color, 25);
+
+          a {
+            color: $primary-color;
+          }
+        }
+
+        .cart-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 4rem;
+          border-radius: 0.5rem;
+          padding: 0.5rem 0.8rem;
+          margin-bottom: 1rem;
+          box-shadow: 0 0 20px rgba(14, 14, 14, 0.1);
+          transition: all 100ms;
+          cursor: pointer;
+
+          @include responsive("medium") {
+            min-width: 25rem;
+          }
+
+          @include responsive("small") {
+            min-width: 22rem;
+          }
+
+          &__details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 85%;
+            height: 100%;
+
+            .cart-item__column {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+
+              img {
+                height: 3rem;
+              }
+
+              .heading {
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                font-size: 0.8rem;
+                margin-bottom: 0.2rem;
+                color: lighten($dark-color, 25);
+              }
+
+              .value {
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                font-size: 1rem;
+                color: lighten($dark-color, 30);
+              }
+
+              @include responsive("medium") {
+                .heading {
+                  font-size: 0.6rem;
+                }
+
+                .value {
+                  font-size: 0.75rem;
+                }
+              }
+
+              @include responsive("small") {
+                img {
+                  height: 2rem;
+                }
+
+                .heading {
+                  font-size: 0.55rem;
+                }
+
+                .value {
+                  font-size: 0.75rem;
+                }
+              }
+            }
+          }
+
+          &__btns {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+
+            ion-icon {
+              font-size: 1.5rem;
+              color: lighten($dark-color, 40);
+              padding: 0.5rem;
+              border-radius: 1.5rem;
+              transition: hover 200ms;
+              cursor: pointer;
+
+              &:hover {
+                background: lighten($dark-color, 80);
+              }
+            }
+          }
+
+          &:hover {
+            border: 3px solid lighten($primary-color, 15);
+          }
+
+          &--active {
+            background: darken($primary-color, 1);
+
+            .cart-item__column {
+              .heading,
+              .value {
+                color: #fff;
+              }
+
+              img {
+                border: 2px solid #fff;
+                border-radius: 4px;
+              }
+            }
+
+            .cart-item__btns {
+              ion-icon {
+                color: #fff;
+
+                &:hover {
+                  background: lighten($primary-color, 5);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .checkout {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      bottom: 12rem;
+      right: 5vw;
+      width: 25vw;
+      max-width: 24rem;
+      min-width: 15rem;
+      border-radius: 1rem;
+      padding: 2rem;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(14, 14, 14, 0.1);
+      z-index: 103;
+
+      .close-btn {
+        display: none;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.8rem;
+        color: lighten($dark-color, 30);
+        width: 2rem;
+        height: 2rem;
+        border-radius: 1rem;
+        transition: hover 200ms;
+        cursor: pointer;
+
+        &:hover {
+          background: lighten($dark-color, 80);
+        }
+
+        @include responsive("small") {
+          display: grid;
+          place-items: center;
+        }
+      }
+
+      @include responsive("medium") {
+        right: 1.5rem;
+      }
+
+      @include responsive("small") {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        max-width: 100vw;
+        height: 60vh;
+        width: 100vw;
+        border-radius: 1rem 1rem 0 0;
+        z-index: 1000 !important;
+        display: none;
+      }
+
+      h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: lighten($dark-color, 15);
+
+        @include responsive("medium") {
+          font-size: 1.3rem;
+        }
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+
+        label {
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-size: 1rem;
+          color: lighten($dark-color, 20);
+          margin-bottom: 0.5rem;
+
+          @include responsive("small") {
+            font-size: 0.9rem;
+          }
+        }
+
+        input {
+          width: 100%;
+          height: 2rem;
+          padding: 16px;
+          border-radius: 25px;
+          border: 2px solid #e8e8e8;
+          color: #919191;
+          background: #f6f6f6;
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-size: 0.8rem;
+
+          &:focus {
+            outline: none;
+            border: 2px solid lighten($primary-color, 10);
+          }
+        }
+      }
+
+      &__btn {
+        background: $primary-color;
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        color: #fff;
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 0.5rem;
+        border: none;
+        margin-top: 1rem;
+        cursor: pointer;
+        transition: hover 200ms;
+
+        @include responsive("small") {
+          margin-top: 2rem;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: #ffa237;
+        }
+      }
+    }
+  }
+}

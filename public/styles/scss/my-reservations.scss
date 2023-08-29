@@ -1,0 +1,190 @@
+@import "reset";
+@import "variables";
+@import "responsive";
+
+.main-content {
+  display: grid;
+  place-items: center;
+
+  @include responsive("small") {
+    margin: auto;
+  }
+
+  .container {
+    width: 80%;
+    margin: 4rem auto;
+
+    @include responsive("small") {
+      width: 100%;
+      margin: 0;
+    }
+
+    .cart {
+      h1 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 2.2rem;
+        color: #262833;
+
+        @include responsive("small") {
+          font-size: 1.5rem;
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          width: 10rem;
+          height: 0.5rem;
+          background: $primary-color;
+          margin-top: 0.8rem;
+        }
+      }
+
+      .reservation-items {
+        margin-top: 2rem;
+        list-style: none;
+
+        .empty-reservation-message {
+          font-family: "Poppins", sans-serif;
+          font-weight: 400;
+          font-size: 1rem;
+          color: lighten($dark-color, 25);
+
+          a {
+            color: $primary-color;
+          }
+        }
+
+        .reservation-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          max-width: 60rem;
+          height: 4rem;
+          border-radius: 0.5rem;
+          padding: 0.5rem 0.8rem;
+          margin-bottom: 1rem;
+          box-shadow: 0 0 20px rgba(14, 14, 14, 0.1);
+          transition: all 100ms;
+          cursor: pointer;
+
+          @include responsive("medium") {
+            min-width: 32rem;
+          }
+
+          @include responsive("small") {
+            min-width: 90vw;
+            // width: 22rem;
+          }
+
+          &__details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 85%;
+            height: 100%;
+
+            @include responsive("small") {
+              width: 90%;
+            }
+
+            .reservation-item__column {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+
+              img {
+                height: 3rem;
+              }
+
+              .heading {
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                font-size: 0.8rem;
+                margin-bottom: 0.2rem;
+                color: lighten($dark-color, 25);
+              }
+
+              .value {
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                font-size: 1rem;
+                color: lighten($dark-color, 30);
+              }
+
+              @include responsive("medium") {
+                .heading {
+                  font-size: 0.7rem;
+                }
+
+                .value {
+                  font-size: 0.9rem;
+                }
+              }
+
+              @include responsive("small") {
+                .heading {
+                  font-size: 0.55rem;
+                }
+
+                .value {
+                  font-size: 0.7rem;
+                }
+              }
+            }
+          }
+
+          &__btns {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            width: 10%;
+
+            ion-icon {
+              font-size: 1.5rem;
+              color: lighten($dark-color, 40);
+              padding: 0.5rem;
+              border-radius: 1.5rem;
+              transition: hover 200ms;
+              cursor: pointer;
+
+              &:hover {
+                background: lighten($dark-color, 80);
+              }
+            }
+          }
+
+          &:hover {
+            border: 3px solid lighten($primary-color, 15);
+          }
+
+          &--active {
+            background: darken($primary-color, 1);
+
+            .reservation-item__column {
+              .heading,
+              .value {
+                color: #fff;
+              }
+
+              img {
+                border: 2px solid #fff;
+                border-radius: 4px;
+              }
+            }
+
+            .reservation-item__btns {
+              ion-icon {
+                color: #fff;
+
+                &:hover {
+                  background: lighten($primary-color, 5);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

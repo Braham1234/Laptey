@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./includes/head.ejs') %>
+  <body>
+    <head>
+      <%- include('./includes/header.ejs') %>
+    </head>
+    <main class="main-content">
+      <button class="floating-btn">Checkout</button>
+      <div class="container">
+        <section class="cart">
+          <h1>My cart</h1>
+          <ul class="cart-items">
+            <% const cartItems = cart.cartItems; const isCartEmpty =
+            (cartItems.length === 0 ? true : false); %> <% if (isCartEmpty) { %>
+            <p class="empty-cart-message">
+              Your cart is empty. Please click
+              <a href="/#categories">here</a> to add your favourite meals.
+            </p>
+            <% } else { %> <% cartItems.forEach(item => { %>
+
+            <li class="cart-item" id="<%= item.mealId %>">
+              <div class="cart-item__details">
+                <div class="cart-item__column">
+                  <img class="img" src="<%= item.imgUrl %>" />
+                </div>
+                <div class="cart-item__column">
+                  <span class="heading">Meal name</span>
+                  <span class="value"><%= item.product %></span>
+                </div>
+                <div class="cart-item__column">
+                  <span class="heading">Rate</span>
+                  <span class="value">Rs. <%= item.mealRate %></span>
+                </div>
+                <div class="cart-item__column">
+                  <span class="heading">Quantity</span>
+                  <span class="value"><%= item.mealQty %></span>
+                </div>
+                <div class="cart-item__column">
+                  <span class="heading">Total price</span>
+                  <span class="value">Rs. <%= item.mealTotalPrice %></span>
+                </div>
+              </div>
+              <div class="cart-item__btns">
+                <ion-icon name="trash"></ion-icon>
+              </div>
+            </li>
+            <% }) %> <% } %>
+          </ul>
+        </section>
+        <section class="checkout" id="checkout-card">
+          <div class="close-btn" id="close-btn">
+            <ion-icon name="close-outline"></ion-icon>
+          </div>
+          <h3>Proceed to checkout</h3>
+          <!-- <div class="checkout__items"><p>Selected items appear here.</p></div> -->
+          <div class="checkout__info">
+            <label for="address">Delivery address</label>
+            <input type="text" id="address" name="address" required />
+          </div>
+          <div class="checkout__info">
+            <label for="date">Delivery date</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+          <div class="checkout__info">
+            <label for="time">Delivery time</label>
+            <input type="time" id="time" name="time" required />
+          </div>
+          <button class="checkout__btn">Checkout</button>
+        </section>
+      </div>
+    </main>
+    <%- include('./includes/footer.ejs') %> <%- include('./includes/end.ejs') %>
+    <script type="module" src="../scripts/cart.js" defer></script>
+  </body>
+</html>

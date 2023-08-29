@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin panel</title>
+    <link rel="icon" href="/assets/icon.png" />
+    <link rel="stylesheet" href="/styles/css/admin-panel.css" type="text/css" />
+  </head>
+  <body>
+    <main class="main-content">
+      <section class="sidebar">
+        <div class="sidebar__top">
+          <a href="/" class="logo-container">
+            <div class="logo">
+              <img src="/assets/icon.png" />
+              <p>Laptey</p>
+            </div>
+          </a>
+          <div class="sidebar__btns">
+            <button
+              class="sidebar__btn sidebar__btn--active"
+              data-for-tab="product"
+            >
+              Product controls
+            </button>
+            <button class="sidebar__btn" data-for-tab="reservation">
+              Reservation controls
+            </button>
+            <button class="sidebar__btn" data-for-tab="order">
+              Order controls
+            </button>
+          </div>
+        </div>
+        <div class="sidebar__bottom">
+          <hr />
+          <button type="button" id="signout-btn">Signout</button>
+        </div>
+      </section>
+      <section class="view-panel">
+        <%- include("./includes/add-product.ejs") %>
+        <div class="view-panel__content" data-tab="reservation"></div>
+        <div class="view-panel__content" data-tab="order"></div>
+      </section>
+    </main>
+    <script type="module" src="/scripts/admin/admin-panel.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

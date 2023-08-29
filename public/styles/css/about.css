@@ -1,0 +1,357 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.main-section {
+  padding: 5rem 5rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 62em) {
+  .main-section {
+    padding: 5rem 1rem;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .main-section {
+    padding: 0;
+  }
+}
+
+.container1 {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 43em) {
+  .container1 {
+    flex-direction: column;
+  }
+}
+
+.container1 img {
+  height: 200px;
+  margin-right: 3rem;
+}
+
+@media screen and (max-width: 62em) {
+  .container1 img {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .container1 img {
+    height: 150px;
+    margin: 1rem;
+  }
+}
+
+.container1 h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #3c3f50;
+}
+
+.container1 h1::after {
+  content: "";
+  height: 0.5rem;
+  background: #ffba6a;
+  display: block;
+  margin-top: 0.5rem;
+  top: 10rem;
+  width: 6rem;
+}
+
+@media screen and (max-width: 43em) {
+  .container1 h1 {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+  .container1 h1::after {
+    margin: 0.6rem auto;
+    height: 0.4rem;
+  }
+}
+
+.container1 p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 25px;
+  color: #3c3f50;
+  margin-top: 30px;
+  width: 50vw;
+}
+
+@media screen and (max-width: 62em) {
+  .container1 p {
+    font-size: 0.9rem;
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .container1 p {
+    width: 75vw;
+    font-size: 0.8rem;
+    line-height: 1.4rem;
+  }
+}
+
+.container2 {
+  display: flex;
+  margin-top: 8rem;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@media screen and (max-width: 43em) {
+  .container2 {
+    margin-top: 2rem;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.container2__feedback {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 30rem;
+  margin-right: 10%;
+}
+
+@media screen and (max-width: 62em) {
+  .container2__feedback {
+    width: 16rem;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .container2__feedback {
+    margin: 0;
+  }
+}
+
+.container2__feedback * {
+  margin-top: 1rem;
+}
+
+.container2__feedback .form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
+  width: 500px;
+}
+
+.container2__feedback h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #3c3f50;
+}
+
+.container2__feedback h1::after {
+  content: "";
+  height: 0.5rem;
+  background: #ffba6a;
+  display: block;
+  margin-top: 0.5rem;
+  top: 10rem;
+  width: 10rem;
+}
+
+@media screen and (max-width: 62em) {
+  .container2__feedback h1 {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .container2__feedback h1 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .container2__feedback h1::after {
+    margin: 1rem auto;
+  }
+}
+
+.container2__feedback input:not([type="checkbox"]),
+.container2__feedback textarea {
+  height: 35px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 25px;
+  border: 2px solid #e8e8e8;
+  color: #919191;
+  background: #f6f6f6;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.container2__feedback input:not([type="checkbox"])::placeholder,
+.container2__feedback textarea::placeholder {
+  color: #7c7c7c;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 62em) {
+  .container2__feedback input:not([type="checkbox"]),
+  .container2__feedback textarea {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .container2__feedback input:not([type="checkbox"]),
+  .container2__feedback textarea {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  .container2__feedback input:not([type="checkbox"])::placeholder,
+  .container2__feedback textarea::placeholder {
+    font-size: 0.9rem;
+  }
+}
+
+.container2__feedback input:not([type="checkbox"]):focus,
+.container2__feedback textarea:focus {
+  outline: none;
+}
+
+.container2__feedback textarea {
+  border-radius: 8px;
+  max-width: 80%;
+  min-width: 80%;
+  min-height: 200px;
+  max-height: 400px;
+}
+
+@media screen and (max-width: 62em) {
+  .container2__feedback textarea {
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .container2__feedback textarea {
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+
+.container2__feedback h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #3c3f50;
+}
+
+@media screen and (max-width: 62em) {
+  .container2__feedback h2 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .container2__feedback h2 {
+    font-size: 1rem;
+  }
+}
+
+.container2__feedback .rating {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  margin: 0;
+}
+
+.container2__feedback .rating input {
+  display: none;
+}
+
+.container2__feedback .rating label {
+  color: #dedede;
+  margin: 0;
+  margin-right: 1rem;
+  font-size: 2.5rem;
+  transition: all 200ms ease;
+}
+
+.container2__feedback .rating input:not(:checked) ~ label:hover,
+.container2__feedback .rating input:not(:checked) ~ label:hover ~ label {
+  color: #ffba6a;
+}
+
+.container2__feedback .rating input:checked ~ label {
+  color: #ffba6a;
+}
+
+.container2__feedback .submit-btn {
+  background: #ffba6a;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 80%;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  transition: background-color 200ms;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 43em) {
+  .container2__feedback .submit-btn {
+    width: 100%;
+  }
+}
+
+.container2__feedback .submit-btn:focus {
+  outline: none;
+}
+
+.container2__feedback .submit-btn:hover {
+  cursor: pointer;
+  background-color: #ffa237;
+}
+
+.container2 #map {
+  width: 350px;
+  height: 350px;
+  z-index: 0;
+}
+
+@media screen and (max-width: 62em) {
+  .container2 #map {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  .container2 #map {
+    width: 300px;
+    height: 300px;
+    margin: 4rem 0;
+  }
+}

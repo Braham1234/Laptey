@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin signin</title>
+    <link rel="icon" href="../assets/icon.png" />
+    <link
+      rel="stylesheet"
+      href="../styles/css/admin-signin-up.css"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="main-content">
+      <div class="container">
+        <div class="logo">
+          <img src="../assets/icon.png" />
+          <p>Laptey</p>
+        </div>
+        <div class="form">
+          <h1>Admin signin</h1>
+          <p>With great power comes great responsibility.</p>
+          <input type="text" name="username" placeholder="Username" required />
+          <div class="password">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              id="password_input_field"
+              required
+            />
+            <div class="eye-btn" id="password_toggle_btn">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+          </div>
+          <button type="button" class="signup-btn">Sign in and continue</button>
+        </div>
+      </div>
+    </div>
+    <script src="/scripts/ui.js"></script>
+    <script type="module" src="/scripts/admin/admin-auth.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
